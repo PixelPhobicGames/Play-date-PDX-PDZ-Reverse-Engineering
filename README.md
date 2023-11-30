@@ -4,12 +4,12 @@
 
 **	
 
-`	`**Intro**	
+**Intro**	
 
-`	`A little while ago in 2022, I wrote a Chip8 Emulator for the Playdate. After that project I dropped development on the system, And I put the system in my desk. Today I Found it again and my interest sparked up again, Remembering that the Playdate has a custom package format and C compiler, I remember the C Api Playdate library, and its ridiculous use of unnecessary pointers, and I thought I can develop a much better Library that not only ran faster but looked less like a travesty. So these will be my notes of looking into exactly what all of the PDX, PDI, and PDZ files do and how you can make them without the use of proprietary closed source tools. 
+A little while ago in 2022, I wrote a Chip8 Emulator for the Playdate. After that project I dropped development on the system, And I put the system in my desk. Today I Found it again and my interest sparked up again, Remembering that the Playdate has a custom package format and C compiler, I remember the C Api Playdate library, and its ridiculous use of unnecessary pointers, and I thought I can develop a much better Library that not only ran faster but looked less like a travesty. So these will be my notes of looking into exactly what all of the PDX, PDI, and PDZ files do and how you can make them without the use of proprietary closed source tools. 
 
 
-`	`**-PDX-**
+**-PDX-**
 
 **	So to put it nicely and sort, The Playdates PDX Files are essentially a renamed zip file, They are nothing more than, thankfully.. Each PDX contains a ->
 
@@ -55,17 +55,17 @@ This is the Code and GCC Commands I've used to Replicate a PDZ File**
 
 void generate\_header(void) {
 
-`   `asm volatile (
+asm volatile (
 
-`       `".section .data\n"
+".section .data\n"
 
-`       `"header\_data:\n"
+"header\_data:\n"
 
-`       `"    .byte 0x50, 0x6c, 0x61, 0x79, 0x64, 0x61, 0x74, 0x65, 0x20, 0x50, 0x44, 0x5a, 0x00, 0x00, 0x00, 0x00\n"
+"    .byte 0x50, 0x6c, 0x61, 0x79, 0x64, 0x61, 0x74, 0x65, 0x20, 0x50, 0x44, 0x5a, 0x00, 0x00, 0x00, 0x00\n"
 
-`       `".section .text\n"
+".section .text\n"
 
-`   `);
+);
 
 }
 
